@@ -1,0 +1,291 @@
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Linkedin, Award, BookOpen, FileText, Users, Briefcase, Calendar, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+
+const ProfileUI = () => {
+  const [expandedSections, setExpandedSections] = useState({
+    experience: true,
+    awards: false,
+    education: false
+  });
+
+  const toggleSection = (section) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
+  const workExperience = [
+    {
+      period: "Jan 2024 - Present",
+      title: "Sr. Engineering Manager",
+      company: "Palo Alto Networks",
+      department: "Cloud Infrastructure and Platform Engineering",
+      highlights: [
+        "Leading a high-performing team of 25 engineers (20 direct, 5 functional) across 4 scrum teams focused on Observability, Internal Development Platform, Engineering Productivity & AI",
+        "Pioneering innovative Gen AI solution to auto-generate Test Automation Code from test plans, achieving 50%+ reduction in automation time",
+        "Delivering comprehensive AutoSRE Platform with enterprise services: SMAaaS (Secret Management as a Service), JITA (Just-in-Time Access), and Landscape orchestration",
+        "Architected AI-powered log analysis solution 'LogWatch' that accelerated regression analysis by 60% and enhanced diagnostic accuracy"
+      ]
+    },
+    {
+      period: "Jan 2022 - Jan 2024",
+      title: "Engineering Manager",
+      company: "Palo Alto Networks",
+      department: "Cloud Infrastructure and Platform Engineering",
+      highlights: [
+        "Started as the 1st member and spearheaded hiring and quick onboarding of a talented team of 14 (10 direct and 4 functional reports)",
+        "Enabled E2E Tenant Onboarding Gitops / CICD and built a k8s operator for enabling it",
+        "Provided auto remediation service along with auto diagnosis for alerts",
+        "Heading the central Cloud Infrastructure and Platform Engineering teams with ownership for Observability Platform, Auto Remediation, Cost Insights, SMaaS"
+      ]
+    },
+    {
+      period: "Dec 2020 – Jan 2022",
+      title: "Senior MTS",
+      company: "Cohesity",
+      highlights: [
+        "Spearheaded a 5-engineer team in Engineering Productivity, architecting Dynamic Reservation as a Service for optimal regression resource utilization",
+        "Developed advanced Flaky Test Analyzer, significantly improving regression accuracy by eliminating infrastructure-related failures"
+      ]
+    },
+    {
+      period: "May 2020 – Dec 2020",
+      title: "Technical Leader",
+      company: "Cisco Systems",
+      highlights: [
+        "Directed cloud data engineering initiatives, creating sophisticated anomaly detection tools for proactive metric-based issue identification",
+        "Architected unified automation frameworks spanning cloud and on-premises environments, dramatically improving test reusability and delivery velocity"
+      ]
+    },
+    {
+      period: "Jun 2017 - Apr 2020",
+      title: "Software Engineer IV",
+      company: "Cisco Systems",
+      highlights: [
+        "Architected high-performance real-time anomaly detection system leveraging Python, Kafka, and Flink on Kubernetes infrastructure",
+        "Scaled and mentored data engineering team from 1 to 4 members, transforming cloud and on-premises data infrastructure capabilities"
+      ]
+    },
+    {
+      period: "Jan 2015 - Jun 2017",
+      title: "Software Engineer 3",
+      company: "Brocade Communications Systems",
+      highlights: [
+        "Engineered comprehensive Upgrade Validation Tool that identified 60+ critical defects in a single release cycle, preventing production issues"
+      ]
+    }
+  ];
+
+  const awards = [
+    "🏆 Winner - Crucible Innovation Event at Palo Alto Networks",
+    "🥈 2nd Place among 100+ submissions in Cisco-wide Innovation Contest 'Toolapalooza'",
+    "⭐ Recipient of 9+ Connected Recognition Awards at Cisco",
+    "🏅 Earned 2 Button Awards during tenure at Brocade",
+    "🎯 Awarded 4 Spot Awards for exceptional performance at Infinite Computer Solutions",
+    "👑 Recognized as 'TITAN of the Quarter' at HCL Technologies for JAS '11"
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-40 left-1/2 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style={{animationDelay: '4s'}}></div>
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 py-8">
+        {/* Header Section */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 mb-8 border border-white/20 shadow-2xl">
+          <div className="flex flex-col lg:flex-row items-start gap-8">
+            <div className="flex-shrink-0">
+              <div className="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center text-4xl font-bold text-white shadow-xl">
+                PK
+              </div>
+            </div>
+            
+            <div className="flex-grow">
+              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Peter Kirubakaran N
+              </h1>
+              <p className="text-xl text-blue-200 mb-6 font-medium">
+                Sr. Engineering Manager
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+                  <Phone className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm">+91 9945586414</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+                  <Mail className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm">peetsn@gmail.com</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+                  <MapPin className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm">Bangalore</span>
+                </div>
+                <div className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors">
+                  <Linkedin className="h-4 w-4 text-blue-400" />
+                  <span className="text-sm">LinkedIn Profile</span>
+                </div>
+              </div>
+
+              <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                  <Users className="h-5 w-5 text-blue-400" />
+                  Professional Summary
+                </h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Results-driven Sr. Engineering Manager with 15 years of proven expertise in 
+                  Platform Engineering, Engineering Productivity, Data Engineering, Networking, Security, and 
+                  innovative Tools & Framework development. Passionate about building high-performing teams and 
+                  delivering cutting-edge solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Experience Section */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 mb-8 border border-white/20 shadow-2xl">
+          <button
+            onClick={() => toggleSection('experience')}
+            className="w-full flex items-center justify-between text-2xl font-bold text-white mb-6 hover:text-blue-400 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <Briefcase className="h-6 w-6 text-blue-400" />
+              Work Experience
+            </div>
+            {expandedSections.experience ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
+          </button>
+          
+          {expandedSections.experience && (
+            <div className="space-y-6">
+              {workExperience.map((job, index) => (
+                <div key={index} className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                  <div className="flex flex-col lg:flex-row lg:items-start gap-4 mb-4">
+                    <div className="flex-shrink-0">
+                      <span className="inline-flex items-center gap-2 px-3 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium">
+                        <Calendar className="h-4 w-4" />
+                        {job.period}
+                      </span>
+                    </div>
+                    <div className="flex-grow">
+                      <h4 className="text-xl font-bold text-white mb-1">{job.title}</h4>
+                      <p className="text-blue-300 font-medium mb-2">{job.company}</p>
+                      {job.department && (
+                        <p className="text-gray-400 text-sm mb-3">{job.department}</p>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <ul className="space-y-2">
+                    {job.highlights.map((highlight, hIndex) => (
+                      <li key={hIndex} className="flex items-start gap-3 text-gray-300">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="leading-relaxed">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Awards & Recognition */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 mb-8 border border-white/20 shadow-2xl">
+          <button
+            onClick={() => toggleSection('awards')}
+            className="w-full flex items-center justify-between text-2xl font-bold text-white mb-6 hover:text-blue-400 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <Award className="h-6 w-6 text-blue-400" />
+              Awards & Recognition
+            </div>
+            {expandedSections.awards ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
+          </button>
+          
+          {expandedSections.awards && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {awards.map((award, index) => (
+                <div key={index} className="bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-xl p-4 border border-yellow-500/20 hover:from-yellow-500/20 hover:to-orange-500/20 transition-all duration-300">
+                  <div className="flex items-start gap-3">
+                    <Award className="h-5 w-5 text-yellow-400 mt-1 flex-shrink-0" />
+                    <span className="text-gray-300 leading-relaxed">{award}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Education & Additional Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Education */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
+            <button
+              onClick={() => toggleSection('education')}
+              className="w-full flex items-center justify-between text-2xl font-bold text-white mb-6 hover:text-blue-400 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <BookOpen className="h-6 w-6 text-blue-400" />
+                Education
+              </div>
+              {expandedSections.education ? <ChevronUp className="h-6 w-6" /> : <ChevronDown className="h-6 w-6" />}
+            </button>
+            
+            {expandedSections.education && (
+              <div className="space-y-6">
+                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                  <h4 className="text-lg font-bold text-white mb-2">Master of Technology - Software Systems</h4>
+                  <p className="text-blue-300 mb-2">BITS – Pilani</p>
+                  <p className="text-gray-400 text-sm mb-2">Jun 2016 — Apr 2018</p>
+                  <p className="text-gray-300 mb-3">GPA: 7.77/10</p>
+                  <p className="text-gray-400 text-sm mb-3">Advanced coursework: Cloud Computing, Network Security, Distributed Computing, Telecommunications Network Management, and Computer Networks</p>
+                </div>
+                
+                <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                  <h4 className="text-lg font-bold text-white mb-2">Bachelor of Engineering - Computer Science and Engineering</h4>
+                  <p className="text-blue-300 mb-2">Karunya University - Coimbatore</p>
+                  <p className="text-gray-400 text-sm mb-2">Jul 2005 — Jun 2009</p>
+                  <p className="text-gray-300">GPA: 7.6/10</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Patents & Publications */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
+            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <FileText className="h-6 w-6 text-blue-400" />
+              Patents & Publications
+            </h3>
+            
+            <div className="space-y-6">
+              <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-xl p-6 border border-green-500/20">
+                <h4 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                  <FileText className="h-5 w-5 text-green-400" />
+                  Patent (Approved)
+                </h4>
+                <p className="text-gray-300">🎓 LogWatch: Advanced AI-Based Log Insights Platform</p>
+              </div>
+              
+              <div className="bg-gradient-to-r from-purple-500/10 to-indigo-500/10 rounded-xl p-6 border border-purple-500/20">
+                <h4 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                  <ExternalLink className="h-5 w-5 text-purple-400" />
+                  Blog
+                </h4>
+                <p className="text-gray-300">📝 "SLO as a Service: Transforming Service Reliability"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProfileUI;
